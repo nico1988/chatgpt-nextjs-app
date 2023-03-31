@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Box, Button, Card, Grid, IconButton, ListDivider, Menu, MenuItem, Stack, Textarea, Tooltip, Typography } from '@mui/joy';
 import ContentPasteGoIcon from '@mui/icons-material/ContentPasteGo';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import HistoryIcon from '@mui/icons-material/History';
 import MicIcon from '@mui/icons-material/Mic';
 import PanToolIcon from '@mui/icons-material/PanTool';
 import PostAddIcon from '@mui/icons-material/PostAdd';
@@ -250,15 +250,15 @@ export function Composer(props: { disableSend: boolean; sendMessage: (text: stri
       </Stack></Grid>
 
       {/* Send pane */}
-      <Grid xs={12} md={3}>
-        <Stack spacing={2}>
+      <Grid xs={12} md={3} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <Stack spacing={2} sx={{ width: '100%'}}>
 
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
 
             {/* [mobile-only] History arrow */}
             {history.length > 0 && (
               <IconButton variant='plain' color='neutral' onClick={showHistory} sx={{ ...hideOnDesktop, mr: { xs: 1, md: 2 } }}>
-                <KeyboardArrowUpIcon />
+                <HistoryIcon />
               </IconButton>
             )}
 
@@ -273,7 +273,7 @@ export function Composer(props: { disableSend: boolean; sendMessage: (text: stri
           {/* [desktop-only] row with History button */}
           <Stack direction='row' spacing={1} sx={{ ...hideOnMobile, flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'flex-end' }}>
             {history.length > 0 && (
-              <Button fullWidth variant='plain' color='neutral' startDecorator={<KeyboardArrowUpIcon />} onClick={showHistory}>
+              <Button fullWidth variant='plain' color='neutral' startDecorator={<HistoryIcon />} onClick={showHistory}>
                 History
               </Button>
             )}
@@ -302,3 +302,6 @@ export function Composer(props: { disableSend: boolean; sendMessage: (text: stri
     </Grid>
   );
 }
+
+// q: how to add jsdoc by github copilot?
+// a: 

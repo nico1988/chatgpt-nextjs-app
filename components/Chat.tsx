@@ -11,7 +11,6 @@ import { DMessage, useActiveConfiguration, useActiveConversation, useChatStore }
 import { SystemPurposes } from '@/lib/data';
 import { useSettingsStore } from '@/lib/store';
 
-
 function createDMessage(role: DMessage['role'], text: string): DMessage {
   return {
     id: Math.random().toString(36).substring(2, 15), // use uuid4 !!

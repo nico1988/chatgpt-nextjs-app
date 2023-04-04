@@ -172,7 +172,7 @@ export interface ApiChatFirstOutput {
 
 export default async function handler(req: NextRequest): Promise<Response> {
 
-  const { apiKey: userApiKey, model, messages, temperature = 0.5, max_tokens = 2048 } = await req.json() as ApiChatInput;
+  const { apiKey: userApiKey, model, messages, temperature = 0.5, max_tokens = 4096 } = await req.json() as ApiChatInput;
   const apiKey = userApiKey || process.env.OPENAI_API_KEY || '';
   if (!apiKey)
     return new Response('Error: missing OpenAI API Key. Add it on the client side (Settings icon) or server side (your deployment).', { status: 400 });
